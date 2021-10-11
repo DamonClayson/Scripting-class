@@ -302,7 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupName: Key
   amount: 1
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 296054093}
 --- !u!61 &241270494
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bddc70feb6b108d429ba716999bea081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 296054093}
 --- !u!61 &500600840
 BoxCollider2D:
   m_ObjectHideFlags: 0

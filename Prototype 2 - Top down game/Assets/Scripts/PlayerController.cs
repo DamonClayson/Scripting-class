@@ -33,13 +33,24 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.up * speed * vInput * Time.deltaTime);
         //Create a wall on the -x side
         if(transform.position.x > -xRange)
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         {
-
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
         //Create a wall on the x side
-        if(transform.position.x <xRange)
+        if(transform.position.x < xRange)
+        {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
+        if(transform.position.y > yRange)
+        {
+            transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
+        }
+        
+        if(transform.position.y < -yRange)
+        {
+            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
+        }
 
        
         {
