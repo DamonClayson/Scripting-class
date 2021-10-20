@@ -1062,14 +1062,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600665520}
-  m_LocalRotation: {x: 0, y: 0.70178634, z: -0.7123875, w: 0}
-  m_LocalPosition: {x: 0.51, y: 0.09, z: -0.68}
+  m_LocalRotation: {x: 0.7123875, y: 0, z: 0, w: 0.70178634}
+  m_LocalPosition: {x: 0.51, y: 0.07, z: 0.6}
   m_LocalScale: {x: 0.14623006, y: 0.21363664, z: 0.16784641}
   m_Children:
   - {fileID: 693829334}
   m_Father: {fileID: 1927381449}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.85901, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.85901, y: 0, z: 0}
 --- !u!54 &1600665522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1146,11 +1146,11 @@ GameObject:
   - component: {fileID: 1927381449}
   - component: {fileID: 1927381448}
   - component: {fileID: 1927381447}
+  - component: {fileID: 1927381450}
   - component: {fileID: 1927381446}
   - component: {fileID: 1927381445}
   - component: {fileID: 1927381452}
   - component: {fileID: 1927381451}
-  - component: {fileID: 1927381450}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1170,6 +1170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a7d4a6ce0790042b37b47a7078e182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHP: 10
+  maxHp: 10
+  scoreToGive: 100
+  moveSpeed: 3
+  attackRange: 15
+  yPathOffset: 0
 --- !u!136 &1927381446
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1240,14 +1246,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927381444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: 1.53, z: 9.23}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0.04, y: 2, z: 7.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1600665521}
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!54 &1927381450
 Rigidbody:
   m_ObjectHideFlags: 0
