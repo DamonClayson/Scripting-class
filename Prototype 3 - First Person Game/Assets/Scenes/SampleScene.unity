@@ -260,13 +260,14 @@ GameObject:
   - component: {fileID: 485578196}
   - component: {fileID: 485578195}
   - component: {fileID: 485578194}
+  - component: {fileID: 485578202}
   - component: {fileID: 485578199}
   - component: {fileID: 485578198}
   - component: {fileID: 485578200}
   - component: {fileID: 485578201}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -363,6 +364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 50
+  curHP: 10
+  maxHP: 10
   lookSensitivity: 1
   maxLookX: 50
   minLookX: -50
@@ -415,6 +418,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objPrefab: {fileID: 6083195632203588872, guid: 6ae65bae410266a46b6d671e778cdd53, type: 3}
   createOnStart: 6
+--- !u!136 &485578202
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485578193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 2.1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &534097818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1170,7 @@ GameObject:
   - component: {fileID: 1927381451}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

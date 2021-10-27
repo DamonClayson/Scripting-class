@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Stats")]
     // Movement speed in units per second
     public float moveSpeed;
     // Force player upwards
     public float jumpForce;
+    public int curHP;
+    public int maxHP;
+    [Header("Mouse Look")]
     // Mouse sensitivity
     public float lookSensitivity;
     // Highest and lowest we can look down and up
@@ -30,21 +34,18 @@ public class PlayerController : MonoBehaviour
         camera = Camera.main;
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        Move();
-        CamLook();
-        if(Input.GetButton("Fire1"))
-        {
-            if(weapon.CanShoot())
-                weapon.Shoot();
-        }
-
-        if(Input.GetButtonDown("Jump"))
-            Jump();
+        curHP -= damage;
+        if(curHP <= 0)
+            Die();
     }
+    // If Players health is zero, run Die()
+    void Die()
+        {
+            
+        }
+    
     void Move()
     {
         float x = Input.GetAxis("Horizontal") * moveSpeed;
@@ -79,7 +80,20 @@ public class PlayerController : MonoBehaviour
         }
             
     }
+    // Update is called once per frame
+    void Update()
+    {
+        Move();
+        CamLook();
+        if(Input.GetButton("Fire1"))
+        {
+            if(weapon.CanShoot())
+                weapon.Shoot();
+        }
 
+        if(Input.GetButtonDown("Jump"))
+            Jump();
+    }
 
 }
 

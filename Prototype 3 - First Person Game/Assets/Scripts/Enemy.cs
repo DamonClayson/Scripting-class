@@ -50,6 +50,20 @@ public class Enemy : MonoBehaviour
             path.RemoveAt(0);
     }
 
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        if(curHP <= 0)
+            Die();
+    }
+
+    void Die()
+        {
+            Destroy(gameObject);
+        }
+    
+
     // Update is called once per frame
     void Update()
     {
