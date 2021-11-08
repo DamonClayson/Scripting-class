@@ -11,6 +11,8 @@ public class Bullet : MonoBehaviour
 
     private float shootTime;
 
+    public GameObject hitParticle;
+
     void OnEnable()
     {
             shootTime = Time.time;
@@ -25,6 +27,9 @@ public class Bullet : MonoBehaviour
             other.GetComponent<Enemy>().TakeDamage(damage);
         // Disable projectile
         gameObject.SetActive(false);
+        // Create on hit particle
+        GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+        Destroy(obj, 1.0f);
     }
     
     // Start is called before the first frame update
