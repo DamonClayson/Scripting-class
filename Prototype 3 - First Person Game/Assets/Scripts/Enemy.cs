@@ -60,6 +60,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
         {
+            GameManager.instance.AddScore(scoreToGive);
             Destroy(gameObject);
         }
     
