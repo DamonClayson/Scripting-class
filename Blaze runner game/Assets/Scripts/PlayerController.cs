@@ -5,32 +5,35 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 
 {
-    public float hInput;
-    public float vInput;
-    public float moveSpeed;
-    public float jumpForce;
-
+    private BoxCollider2D coll;
     private Rigidbody2D rb;
+
+// Can player jump on ground
+    [SerializeField] private LayerMask jumpableGround;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    void Awake()
-    {
+        coll = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
     
     // Update is called once per frame
     void Update()
-    {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal"), rb.velocity.y);
+    {   
+        float dirX = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(dirX * 7, rb.velocity.y);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+    // Check if space is pressed and if player is on ground
+        if(Input.GetKeyDown("space") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, moveSpeed);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, 10);
         }
     }
-}
+
+// Checks if player is on ground and if he can jump when on ground
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(GetComponent<Collider2D>().bounds.center, GetComponent<Collider2D>().bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+} 
