@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 
@@ -8,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D coll;
     private Rigidbody2D rb;
 
-// Can player jump on ground
+    // Can player jump on ground
     [SerializeField] private LayerMask jumpableGround;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
+    // Player movement/velocity
         float dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * 7, rb.velocity.y);
 
@@ -35,5 +37,18 @@ public class PlayerController : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.BoxCast(GetComponent<Collider2D>().bounds.center, GetComponent<Collider2D>().bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Trap"))
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+        }
+    }
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 } 
