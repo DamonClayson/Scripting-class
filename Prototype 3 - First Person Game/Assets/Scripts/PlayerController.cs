@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         curHP -= damage;
         if(curHP <= 0)
             Die();
+
         GameUI.instance.UpdateHealthBar(curHP, maxHP);
     }
     // If Players health is zero, run Die()
@@ -60,10 +61,8 @@ public class PlayerController : MonoBehaviour
         // rb.velocity = new Vector3(x, rb.velocity.y, z); <- Old code
         // Move direction relative to camera
         Vector3 dir = transform.right * x + transform.forward * z;
-        rb.velocity = dir;
         dir.y = rb.velocity.y;
-
-
+        rb.velocity = dir;
     }
 
     void CamLook()
@@ -84,7 +83,6 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-            
     }
 
     public void GiveHealth(int amountToGive)

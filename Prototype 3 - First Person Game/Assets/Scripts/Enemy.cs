@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     {
         weapon = GetComponent<Weapon>();
         target = FindObjectOfType<PlayerController>().gameObject;
+        // Run UpdatePath every .5 seconds
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
 
         curHP = maxHp;
@@ -75,7 +76,7 @@ public class Enemy : MonoBehaviour
 
         // Calculate distance between the enemy and player
         float dist = Vector3.Distance(transform.position, target.transform.position);
-        // If within attackrang, shoot at player
+        // If within attackrange, shoot at player
         if(dist <= attackRange)
         {
             if(weapon.CanShoot())

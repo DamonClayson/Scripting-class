@@ -14,6 +14,9 @@ public class Pickup : MonoBehaviour
     private bool bobbingUp;
     private Vector3 startPos;
 
+    // Audio pickup sound
+    public AudioClip pickupSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +27,8 @@ public class Pickup : MonoBehaviour
     {
 
         Health,
-        Ammo
-        
+        Ammo   
+             
     }
 
     void OnTriggerEnter(Collider other)
@@ -46,7 +49,9 @@ public class Pickup : MonoBehaviour
                 print("Cant pickup this type");
                 break;
             }
-
+            // Reference audio source to play sound effect
+            other.GetComponent<AudioSource>().PlayOneShot(pickupSFX);
+            // Destroy pickup
             Destroy(gameObject);     
         }
     }
