@@ -123,8 +123,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void RestartLevel()
+    void Awake() 
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // Disable cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
 } 

@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
 
     // Update is called once per frame
+    // Shooting input (Fire1 is set to space)
     void Update()
     {
                 if(Input.GetButtonDown("Fire1"))
@@ -17,6 +18,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    // Create bullet prefab at muzzle position
     void Shoot()
     {
         Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);

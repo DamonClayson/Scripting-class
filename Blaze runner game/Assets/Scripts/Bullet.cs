@@ -10,14 +10,15 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
 
     // Start is called before the first frame update
+    // Bullet speed/direction
     void Start()
     {
        rb.velocity = transform.right * bulletSpeed;
     }
 
+    // If bullet collides with breakableWall Destroy
     void OnTriggerEnter2D(Collider2D breakableWall)
     {
-
         Destroy(gameObject);
     }
 }

@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public int Respawn;
 
+    // If object collides with player respawn player (LoadScene 0, can change when I add UI)
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(Respawn);
+            FindObjectOfType<GameManager>().LoseGame();
         }
     }
 }

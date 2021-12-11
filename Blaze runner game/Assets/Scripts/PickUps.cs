@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickUps : MonoBehaviour
+
 {
-    private int coins = 0;
+    [Header("Coins")]
+    public int coins = 0;
+    public Text coinsText;
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -12,19 +16,8 @@ public class PickUps : MonoBehaviour
         {
             Destroy(collision.gameObject);
             coins = coins + 1;
-            print("Yup");
+            print("Picked up coin");
+            GameUI.instance.UpdateCoinsText(coins);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
