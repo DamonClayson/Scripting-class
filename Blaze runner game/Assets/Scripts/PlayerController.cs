@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     public float groundRadius = 0.2f;
     bool isGrounded = false;
 
-    //
     bool isFacingRight = true;
     float mx = 0f;
 
@@ -48,7 +47,7 @@ public class PlayerController : MonoBehaviour
         float dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * 10, rb.velocity.y);
 
-    //Player direction
+    // Player direction
         mx = Input.GetAxis("Horizontal");
 
         if(mx < 0) 
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
             }        
 
     // Check if space is pressed and if player is on ground
-        if(Input.GetKeyDown("space") && isGrounded)
+        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, 15);
         }

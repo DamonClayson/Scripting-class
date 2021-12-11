@@ -1,25 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDeath : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public int Respawn;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.CompareTag("Trap"))
+        if(other.gameObject.CompareTag("Player"))
         {
-            Die();
+            SceneManager.LoadScene(Respawn);
         }
-    }
-// SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    private void Die()
-    {
-        
     }
 }
