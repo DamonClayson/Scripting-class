@@ -16,7 +16,6 @@ public class GameUI : MonoBehaviour
     [Header("End Game Screen")]
     public GameObject endGameScreen;
     public TextMeshProUGUI endGameText;
-    public TextMeshProUGUI finalCoinsText;
 
     public static GameUI instance;
     void Awake() 

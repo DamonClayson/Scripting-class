@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         {
             // When you die restart level
             gameLost = true;
-            print("Game Over");
+            print("You Died");
             Restart();
         }
     }

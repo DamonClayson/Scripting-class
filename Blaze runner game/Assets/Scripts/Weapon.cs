@@ -8,6 +8,10 @@ public class Weapon : MonoBehaviour
 
     public GameObject bulletPrefab;
 
+    // Audio Source and what sound to play
+    public AudioClip shootSFX;
+    private AudioSource audioSource;
+
     // Update is called once per frame
     // Shooting input (Fire1 is set to space)
     void Update()
@@ -22,5 +26,13 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
+
+        // Play Shoot sound effect
+        audioSource.PlayOneShot(shootSFX);
+    }
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
     }
 }
