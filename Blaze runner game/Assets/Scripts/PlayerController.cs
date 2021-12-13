@@ -44,11 +44,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {   
     // Player movement/velocity
-        float dirX = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(dirX * 10, rb.velocity.y);
+    float dirX = Input.GetAxisRaw("Horizontal");
+    rb.velocity = new Vector2(dirX * 10, rb.velocity.y);
 
     // Player direction
-        mx = Input.GetAxis("Horizontal");
+    mx = Input.GetAxis("Horizontal");
 
         if(mx < 0) 
         {
@@ -62,12 +62,12 @@ public class PlayerController : MonoBehaviour
             }        
 
     // Check if space is pressed and if player is on ground
-        if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, 15);
-        }
+    if(Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+    {
+        GetComponent<Rigidbody2D>().velocity = new Vector2(rb.velocity.x, 15);
+    }
     // Check if player is on ground and if he can jump when ok ground
-        bool touchingGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+    bool touchingGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
         if(touchingGround)
         {
             isGrounded = true;
@@ -78,24 +78,19 @@ public class PlayerController : MonoBehaviour
             }
     }
 
-    // Checks if player is on ground and if he can jump when on ground
-    //private bool isGrounded()
-    //{
-        //return Physics2D.BoxCast(GetComponent<Collider2D>().bounds.center, GetComponent<Collider2D>().bounds.size, 0f, Vector2.down, .1f, jumpableGround);
-    //}
-
     // Checks if player collides with "Trap". If so, make player static
-        private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Trap"))
-        {
-            rb.bodyType = RigidbodyType2D.Static;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+        //if(collision.gameObject.CompareTag("Trap"))
+        //{
+            //rb.bodyType = RigidbodyType2D.Static;
+        //}
+   //}
+
     void FixedUpdate() 
     {
         // Wall Jump
-        // https://www.youtube.com/watch?v=adT3vSD-74Q&t=203s&ab_channel=MuddyWolf - Code for wall jump
+        // https://www.youtube.com/watch?v=adT3vSD-74Q&t=203s&ab_channel=MuddyWolf - Tutorial for wall jump
          if (isFacingRight) 
         {
             WallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, jumpableGround);

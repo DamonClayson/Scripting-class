@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointFollower : MonoBehaviour
 {
-    //public GameObject FireParticles;
+    // https://www.youtube.com/watch?v=UlEE6wjWuCY&t=986s&ab_channel=CodinginFlow <- tutorial on waypoints
     [SerializeField] private GameObject[] waypoints;
     private int currentWaypointIndex = 0;
 
